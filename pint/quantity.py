@@ -1451,7 +1451,7 @@ class Quantity(PrettyIPython, SharedRegistryObject):
 
     @check_implemented
     def compare(self, other, op):
-        if not isinstance(other, self.__class__):
+        if not isinstance(other, Quantity):
             if self.dimensionless:
                 return op(self._convert_magnitude_not_inplace(UnitsContainer()), other)
             elif eq(other, 0, True):
